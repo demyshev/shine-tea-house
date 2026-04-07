@@ -10,7 +10,7 @@ export async function POST(request) {
     return Response.json({ ok: false, error: "Invalid request" }, { status: 400 });
   }
 
-  const { name, phone, email } = body ?? {};
+  const { name, phone, email, message } = body ?? {};
 
   if (!name || !email) {
     return Response.json({ ok: false, error: "Name and email are required" }, { status: 400 });
@@ -18,8 +18,6 @@ export async function POST(request) {
 
   try {
     await resend.emails.send({
-      // While you don't have a domain, Resend only allows sending TO your own
-      // verified email using their shared onboarding sender.
       from: "onboarding@resend.dev",
       to: process.env.CONTACT_RECIPIENT_EMAIL,
       subject: `New message from ${name} — Shine Tea House`,
@@ -27,6 +25,8 @@ export async function POST(request) {
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Phone:</strong> ${phone || "—"}</p>
         <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message ? message.replace(/\n/g, "<br>") : "—"}</p>
       `,
     });
     return Response.json({ ok: true });

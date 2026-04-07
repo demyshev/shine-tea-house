@@ -26,7 +26,7 @@ const labelStyle = {
 };
 
 export default function ContactForm() {
-  const [fields, setFields] = useState({ name: "", phone: "", email: "" });
+  const [fields, setFields] = useState({ name: "", phone: "", email: "", message: "" });
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
 
   function handleChange(e) {
@@ -86,6 +86,19 @@ export default function ContactForm() {
           />
         </div>
       ))}
+
+      <div className="flex flex-col gap-2">
+        <label htmlFor="message" style={labelStyle}>Message</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Your message"
+          value={fields.message}
+          onChange={handleChange}
+          rows={5}
+          style={{ ...inputStyle, resize: "vertical" }}
+        />
+      </div>
 
       {status === "error" && (
         <p style={{ fontFamily: "var(--font-body)", color: "var(--color-orange-red)", fontSize: "0.8rem", fontWeight: 300 }}>
