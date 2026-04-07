@@ -1,8 +1,59 @@
 @import "tailwindcss";
 
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap');
+
 :root {
+  --color-bg: #faf8f4;
+  --color-bg-alt: #f0ede6;
+  --color-bg-green: #e8f0e4;
+  --color-bg-blue: #e4eef5;
   --color-white: #ffffff;
-  --color-light-green: #d4e8d0;
-  --color-orange-red: #c8553d;
-  --color-light-blue: #b8d4e8;
+  --color-light-green: #a8c9a0;
+  --color-green-muted: #c8ddc4;
+  --color-orange-red: #b84a30;
+  --color-orange-soft: #d4724e;
+  --color-light-blue: #7aaec8;
+  --color-blue-muted: #b0cfe0;
+  --color-text: #2c2c2c;
+  --color-text-muted: #7a7570;
+  --color-border: #ddd8d0;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Jost', system-ui, sans-serif;
+}
+
+html {
+  background-color: var(--color-bg);
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-link:hover {
+  color: var(--color-orange-red);
+}
+
+.product-card {
+  background-color: var(--color-bg-alt);
+  border: 0.5px solid var(--color-border);
+  border-radius: 4px;
+  transition: border-color 0.2s;
+  display: block;
+  overflow: hidden;
+  text-decoration: none;
+}
+.product-card:hover {
+  border-color: var(--color-light-green);
 }

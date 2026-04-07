@@ -9,38 +9,35 @@ export default function Navbar() {
   return (
     <nav
       style={{
-        backgroundColor: "var(--color-white)",
-        borderBottom: "1px solid var(--color-light-green)",
+        backgroundColor: "var(--color-bg)",
+        borderBottom: "0.5px solid var(--color-border)",
       }}
-      className="w-full px-6 py-4"
+      className="w-full px-6 py-5"
     >
-      <div className="max-w-5xl mx-auto flex items-center justify-between">
+      <div className="max-w-6xl mx-auto flex items-center justify-between">
         {/* Brand */}
         <Link
           href="/"
-          className="text-lg font-semibold tracking-wide"
-          style={{ color: "var(--color-orange-red)" }}
+          style={{
+            fontFamily: "var(--font-display)",
+            color: "var(--color-orange-red)",
+            fontSize: "1.25rem",
+            fontWeight: 400,
+            letterSpacing: "0.12em",
+          }}
         >
           Shine Tea House
         </Link>
 
         {/* Desktop nav links */}
-        <ul className="hidden sm:flex gap-8 list-none m-0 p-0">
-          <li>
-            <Link href="/" className="text-sm tracking-wide hover:opacity-70 transition-opacity" style={{ color: "#333" }}>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="/about" className="text-sm tracking-wide hover:opacity-70 transition-opacity" style={{ color: "#333" }}>
-              About Us
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" className="text-sm tracking-wide hover:opacity-70 transition-opacity" style={{ color: "#333" }}>
-              Contact Us
-            </Link>
-          </li>
+        <ul className="hidden sm:flex gap-10 list-none m-0 p-0">
+          {[["Home", "/"], ["About Us", "/about"], ["Contact Us", "/contact"]].map(([label, href]) => (
+            <li key={href}>
+              <Link href={href} className="nav-link">
+                {label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         {/* Mobile hamburger */}
@@ -50,33 +47,25 @@ export default function Navbar() {
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
         >
-          <span className="block w-5 h-0.5 bg-gray-700" />
-          <span className="block w-5 h-0.5 bg-gray-700" />
-          <span className="block w-5 h-0.5 bg-gray-700" />
+          <span className="block w-5" style={{ height: "0.5px", backgroundColor: "var(--color-text-muted)" }} />
+          <span className="block w-5" style={{ height: "0.5px", backgroundColor: "var(--color-text-muted)" }} />
+          <span className="block w-5" style={{ height: "0.5px", backgroundColor: "var(--color-text-muted)" }} />
         </button>
       </div>
 
       {/* Mobile dropdown */}
       {menuOpen && (
         <ul
-          className="sm:hidden mt-3 flex flex-col gap-4 px-6 pb-4 list-none m-0 p-0"
-          style={{ borderTop: "1px solid var(--color-light-green)" }}
+          className="sm:hidden mt-4 flex flex-col gap-5 px-6 pb-5 list-none m-0 p-0"
+          style={{ borderTop: "0.5px solid var(--color-border)" }}
         >
-          <li className="pt-3">
-            <Link href="/" className="text-sm tracking-wide" style={{ color: "#333" }} onClick={() => setMenuOpen(false)}>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="/about" className="text-sm tracking-wide" style={{ color: "#333" }} onClick={() => setMenuOpen(false)}>
-              About Us
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" className="text-sm tracking-wide" style={{ color: "#333" }} onClick={() => setMenuOpen(false)}>
-              Contact Us
-            </Link>
-          </li>
+          {[["Home", "/"], ["About Us", "/about"], ["Contact Us", "/contact"]].map(([label, href]) => (
+            <li key={href} className="pt-4">
+              <Link href={href} className="nav-link" onClick={() => setMenuOpen(false)}>
+                {label}
+              </Link>
+            </li>
+          ))}
         </ul>
       )}
     </nav>

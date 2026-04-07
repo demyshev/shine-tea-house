@@ -8,22 +8,39 @@ export default function ProductCard({ product }) {
   return (
     <Link
       href={`/shop/${slug}`}
-      className="group block bg-white border border-gray-100 rounded-lg shadow-sm overflow-hidden transition-transform duration-200 hover:scale-[1.02] hover:shadow-md"
+      className="product-card group"
     >
-      <div className="relative w-full aspect-square">
+      <div className="relative w-full aspect-square overflow-hidden">
         <ProductImage
           src={thumbnail}
           alt={name}
           width={400}
           height={400}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
         />
       </div>
-      <div className="p-4">
-        <h3 className="text-sm font-medium tracking-wide text-gray-800 mb-1">
+      <div className="px-3 py-3">
+        <h3
+          style={{
+            fontFamily: "var(--font-display)",
+            color: "var(--color-text)",
+            fontSize: "0.95rem",
+            fontWeight: 400,
+            letterSpacing: "0.04em",
+            marginBottom: "4px",
+          }}
+        >
           {name}
         </h3>
-        <p className="text-sm text-gray-500">
+        <p
+          style={{
+            fontFamily: "var(--font-body)",
+            color: "var(--color-orange-soft)",
+            fontSize: "0.8rem",
+            fontWeight: 300,
+            letterSpacing: "0.06em",
+          }}
+        >
           ${price.toFixed(2)}
         </p>
       </div>
