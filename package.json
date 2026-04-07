@@ -1,0 +1,34 @@
+{
+  "name": "shine-tea-house",
+  "version": "1.0.0",
+  "description": "Shine Tea House - minimalistic Japanese-inspired e-commerce tea store",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest --run"
+  },
+  "dependencies": {
+    "next": "^15.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "resend": "^6.10.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.2",
+    "@babel/preset-react": "^7.28.5",
+    "@tailwindcss/postcss": "^4.1.3",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "autoprefixer": "^10.4.21",
+    "babel-jest": "^30.3.0",
+    "eslint": "^9.24.0",
+    "eslint-config-next": "^15.3.0",
+    "jest": "^30.3.0",
+    "jest-environment-jsdom": "^30.3.0",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.3"
+  }
+}
