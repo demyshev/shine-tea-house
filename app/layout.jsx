@@ -1,4 +1,5 @@
 import "./globals.css";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata = {
   title: "Shine Tea House",
@@ -10,6 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body style={{ backgroundColor: "var(--color-bg)", color: "var(--color-text)" }} className="min-h-screen">
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
